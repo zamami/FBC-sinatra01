@@ -41,11 +41,15 @@ GEM
     multi_json (1.15.0)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
+    nio4r (2.5.9)
     nokogiri (1.15.0-arm64-darwin)
       racc (~> 1.4)
     parallel (1.23.0)
     parser (3.2.2.1)
       ast (~> 2.4.1)
+    pg (1.5.3)
+    puma (5.6.5)
+      nio4r (~> 2.0)
     racc (1.6.2)
     rack (2.2.7)
     rack-protection (3.0.6)
@@ -76,10 +80,6 @@ GEM
     rubocop-performance (1.17.1)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
-    rubocop-rails (2.19.1)
-      activesupport (>= 4.2.0)
-      rack (>= 1.1)
-      rubocop (>= 1.33.0, < 2.0)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     sinatra (3.0.6)
@@ -104,8 +104,9 @@ PLATFORMS
 
 DEPENDENCIES
   erb_lint
+  pg
+  puma
   rubocop-fjord
-  rubocop-rails
   sinatra
   sinatra-contrib
 

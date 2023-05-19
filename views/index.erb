@@ -1,0 +1,8 @@
+<h1>メモアプリ</h1>
+<a href="http://localhost:4567/new">  追加  </a>
+
+<% unless @memos.nil? %>
+  <% @memos.each do |memo| %>
+    <p> •<%= memo %> </p>
+  <% end %>
+<% end %> 
