@@ -9,10 +9,11 @@
 # patch:/books/:id
 # delete:/books/:id
 
-require "sinatra"
-require "sinatra/reloader"
-require "pg"
-require "pg"
+require 'sinatra'
+require 'sinatra/reloader'
+require 'pg'
+require 'pg'
+require 'json'
 
 # client = PG::connect(
 #   :host => "localhost",
@@ -21,30 +22,32 @@ require "pg"
 # )
 
 # トップ画面
-get "/" do
+get '/' do
   erb :index
 end
 
-post "/" do
-  @memos = []
-  @memos << params[:title]
-  @memos << params[:contents]
+post '/' do
+  time = Time.now.strftime('%Y%m%d_%H_%M_%S') # メモごとにファイルを保存
+  File.open("public/notes/#{time}_note.json", 'w') do |file|
+    hash = { 'time' => time, 'title' => params[:title], 'content' => params[:contents] }
+    JSON.dump(hash, file)
+  end
+
   erb :index
 end
 
-get "/new" do
+get '/new' do
   erb :form
 end
 
-get "/books/:id/edit" do
-
+get '/books/:id/edit' do
 end
 
-get "/books/:id(show)" do
+get '/books/:id(show)' do
 end
 
-patch "/books/:id" do
+patch '/books/:id' do
 end
 
-delete "/books/:id" do
+delete '/books/:id' do
 end
