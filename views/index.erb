@@ -1,8 +1,8 @@
-<h1>メモアプリ</h1>
 <a href="http://localhost:4567/new">  追加  </a>
 
-<% unless @memos.nil? %>
-  <% @memos.each do |memo| %>
-    <p> •<%= memo %> </p>
+<%# メモのタイトルを全て表示する %>
+<% unless @notes.nil? %> <%# データが存在しているのか確認 %>
+  <% @notes.each_with_index do |note,index| %>
+    <p><a href="http://localhost:4567/<%= index+1 %>">•<%= note["title"] %></a></p>
   <% end %>
 <% end %> 

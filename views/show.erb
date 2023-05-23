@@ -1,0 +1,9 @@
+<% @notes.each_with_index  do |note,index| %>
+  <% if params[:id] == "#{index+1}" %>
+    <p> <%= note["title"] %> </p>
+    <p> <%= note["content"] %> </p>
+  <% end %>
+<% end %> 
+
+<a href="http://localhost:4567/###">  変更  </a>
+<a href="http://localhost:4567/###">  削除  </a>

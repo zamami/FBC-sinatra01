@@ -1,18 +1,7 @@
-
-# rooting
-#  トップ画面、メモ作成
-# get:/memos
-# post:/memos
-# get:/new
-# get:/books/:id/edit
-# get:/books/:id(show)
-# patch:/books/:id
-# delete:/books/:id
-
 require 'sinatra'
 require 'sinatra/reloader'
 require 'pg'
-require 'pg'
+# require 'pg'
 require 'json'
 
 # client = PG::connect(
@@ -23,6 +12,8 @@ require 'json'
 
 # トップ画面
 get '/' do
+  notes = Dir.glob('public/notes/*') # ファイル名を全て取得
+  @notes = notes.map { |file| open(file) { |data| JSON.load(data) } }
   erb :index
 end
 
@@ -32,7 +23,8 @@ post '/' do
     hash = { 'time' => time, 'title' => params[:title], 'content' => params[:contents] }
     JSON.dump(hash, file)
   end
-
+  notes = Dir.glob('public/notes/*') # ファイル名を全て取得
+  @notes = notes.map { |file| open(file) { |data| JSON.load(data) } }
   erb :index
 end
 
@@ -40,14 +32,17 @@ get '/new' do
   erb :form
 end
 
-get '/books/:id/edit' do
+get '/:id' do
+  notes = Dir.glob('public/notes/*') # ファイル名を全て取得
+  @notes = notes.map { |file| open(file) { |data| JSON.load(data) } }
+  erb :show
 end
 
-get '/books/:id(show)' do
+get '/:id/edit' do
 end
 
-patch '/books/:id' do
+patch '/:id' do
 end
 
-delete '/books/:id' do
+delete '/:id' do
 end
