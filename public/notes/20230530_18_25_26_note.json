@@ -1,0 +1,1 @@
+{"id":"20230530_18_25_26","title":"XSS対策","content":"helpers do\r\n  def h(text)\r\n    Rack::Utils.escape_html(text)\r\n  end\r\nend\r\nを使ってXSS対策を行いました。\r\n\r\n<a href =\"youtube.com\"> youtube </a>"}

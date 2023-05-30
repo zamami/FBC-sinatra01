@@ -1,9 +1,15 @@
-<% @notes.each_with_index  do |note,index| %>
-  <% if params[:id] == "#{index+1}" %>
-    <p> <%= note["title"] %> </p>
-    <p> <%= note["content"] %> </p>
+<% @notes.each  do |note| %>
+  <% if params[:id] == "#{note['id']}" %>
+    <p> <%= h(note["title"]) %> </p>
+    <p style ="white-space: pre-wrap;" ><%= h(note["content"]) %> </p> 
   <% end %>
 <% end %> 
 
-<a href="http://localhost:4567/###">  変更  </a>
-<a href="http://localhost:4567/###">  削除  </a>
+<form method="get" action="/memos/<%= params[:id] %>/edit">
+  <input type="submit" value="更新">
+</form>
+
+<form method="post" action="/memos/<%= params[:id] %>">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="削除">
+</form>
