@@ -1,13 +1,13 @@
-<form action="/memos" method="post" enctype="multipart/form-data">
-  <div>
-    <label for="value1">タイトル：</label>
-    <input type="text" name="title" size="50" placeholder="タイトルを入力してください">
+<form class="form" action="/memos" method="post" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="value1">タイトル</label>
+    <input class="form-control" type="text" name="title" size="50" placeholder="タイトルを入力してください">
   </div>
 
-  <div>
-    <label for="value1">内容：</label>
-    <textarea name="contents" cols=50 rows=10  placeholder="内容を入力してください"></textarea>
+  <div class="form-group">
+    <label for="value1">内容</label>
+    <textarea class="form-control" name="contents" cols="50" rows="10" placeholder="内容を入力してください"></textarea>
   </div>
 
-  <input type="submit" value="保存">
+  <input class="btn btn-primary" type="submit" value="保存">
 </form>
