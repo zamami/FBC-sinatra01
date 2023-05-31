@@ -1,13 +1,13 @@
-<form class="form" action="/memos/<%= params[:id]%>" method="post" enctype="multipart/form-data">
+<form class="form" action="/memos/<%= params[:id] %>" method="post" enctype="multipart/form-data">
 <input type="hidden" name="_method" value="patch">
   <div class="form-group">
     <label for="value1">タイトル</label>
-    <input class="form-control" type="text" name="title" value="<%= @edit_memo['title']%>">
+    <input class="form-control" type="text" name="title" value="<%= @edit_memo['title'] %>">
   </div>
 
   <div class="form-group">
     <label for="value1">内容</label>
-    <textarea class="form-control" name="content" cols=50 rows=10><%= @edit_memo['content']%></textarea>
+    <textarea class="form-control" name="content" cols=50 rows=10><%= @edit_memo['content'] %></textarea>
   </div>
 
   <input class="btn btn-primary" type="submit" value="保存">
