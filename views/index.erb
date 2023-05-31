@@ -1,8 +1,8 @@
 <a class="btn btn-primary list-group-item-action" href="http://localhost:4567/memos/new">追加</a>
 
 <%# メモのタイトルを全て表示する %>
-<% unless @notes.nil? %> <%# データが存在しているのか確認 %>
-  <% @notes.each do |note| %>
-    <p><a class="list-group-item list-group-item-action" href="http://localhost:4567/memos/<%= note['id'] %>">•<%= h(note["title"].empty? ? '[no_title]':note['title']) %></a></p>
+<% unless @files.nil? %> <%# データが存在しているのか確認 %>
+  <% @files.each do |file| %>
+    <p><a class="list-group-item list-group-item-action" href="http://localhost:4567/memos/<%= file['id'] %>">•<%= h(file["title"].empty? ? '[no_title]': file['title']) %></a></p>
   <% end %>
 <% end %>
