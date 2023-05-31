@@ -81,6 +81,6 @@ patch '/memos/:id' do
   update_note = JSON.parse(note)
   update_note['title'] = params['title']
   update_note['content'] = params['content']
-  File.open(note, 'w') { |f| JSON.dump(update_note, f) }
+  File.open("public/notes/#{update_note['id']}_note.json", 'w') { |f| JSON.dump(update_note, f) }
   redirect to('/memos')
 end
