@@ -41,7 +41,7 @@ post '/memos' do # 新規メモデータの受け取り
     hash_data['id'] = index + ID_NUMBER_ADJUSTMENT # idの値を１から始まる番号に変換
     hash_data
   end
-  erb :index
+  redirect to('/memos')
 end
 
 get '/memos/new' do # 新規登録
@@ -82,17 +82,5 @@ patch '/memos/:id' do
   update_note['title'] = params['title']
   update_note['content'] = params['content']
   File.open(note, 'w') { |f| JSON.dump(update_note, f) }
-  binding.irb
-
-  # notes = Dir.glob('public/notes/*') # ファイル名を全て取得
-  # hash_datas = notes.map do |file| # jsonデータをハッシュに変換
-  #   note = File.open(file, 'r')
-  #   note.read
-  # end
-  # @notes = hash_datas.map.each_with_index do |file_data, index|
-  #   hash_data = JSON.parse(file_data)
-  #   hash_data['id'] = index + ID_NUMBER_ADJUSTMENT # idの値を１から始まる番号に変換
-  #   hash_data
-  # end
-  redirect :show
+  redirect to('/memos')
 end

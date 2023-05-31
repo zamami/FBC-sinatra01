@@ -1,4 +1,5 @@
-<form  method="POST" action="/memos/:id">
+<form  method="POST" action="/memos/<%= params[:id]%>">
+<%# <form  method="POST" action="/memos/:id"> %>
 <input type="hidden" name="_method" value="patch">
   <div>
     <label for="value1">タイトル：</label>
